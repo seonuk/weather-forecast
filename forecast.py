@@ -15,7 +15,7 @@ if __name__ == '__main__':
     # independent = df[['최저기온']]
     # dependent = df[['최저기온']]
 
-    X = tf.keras.layers.Input(shape=[5])
+    X = tf.keras.layers.Input(shape=[1])
     Y = tf.keras.layers.Dense(2)(X)
     model = tf.keras.models.Model(X,Y)
 
