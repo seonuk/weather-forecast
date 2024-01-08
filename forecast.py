@@ -9,13 +9,16 @@ if __name__ == '__main__':
 
     independent= df.iloc[:, ~df.columns.isin(['최저기온(°C)', '최고기온(°C)', '일시'])]
     dependent = df.iloc[:, df.columns.isin(['최저기온(°C)', '최고기온(°C)'])]
+
     print(independent)
     print(dependent)
     # independent = df[['최저기온']]
     # dependent = df[['최저기온']]
-    X = tf.keras.layers.Input(shape=[3])
+
+    X = tf.keras.layers.Input(shape=[5])
     Y = tf.keras.layers.Dense(2)(X)
     model = tf.keras.models.Model(X,Y)
+
     model.compile(loss='mse')
 
     model.fit(independent, dependent, epochs=10, verbose=0)
