@@ -2,6 +2,7 @@ import tensorflow as tf
 import pandas as pd
 
 if __name__ == '__main__':
+
     file_path = 'https://raw.githubusercontent.com/seonuk/weather-forecast/master/OBS_ASOS_DD_20240107222617.csv'
     df = pd.read_csv(file_path)
 
@@ -14,7 +15,6 @@ if __name__ == '__main__':
     print(dependent)
     # independent = df[['최저기온']]
     # dependent = df[['최저기온']]
-
     X = tf.keras.layers.Input(shape=[1])
     Y = tf.keras.layers.Dense(2)(X)
     model = tf.keras.models.Model(X,Y)
@@ -23,6 +23,7 @@ if __name__ == '__main__':
 
     model.fit(independent, dependent, epochs=10, verbose=0)
 
-    print(model.predict['independent'])
+    model.predict
+    # print(model.predict['independent'])
     # print(model.predict([[15]]))
     # independent = weather_csv[]
