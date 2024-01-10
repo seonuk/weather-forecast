@@ -44,7 +44,7 @@ if __name__ == "__main__":
     Y = tf.keras.layers.Dense(y_train.shape[1])(H)
     model = tf.keras.models.Model(X,Y)
 
-    model.compile(loss='mse', optimizer='adam')
+    model.compile(loss='mae', optimizer='adam')
     model.fit(independent, dependent, epochs=1000)
 
     model.evaluate(x_test, y_test)
